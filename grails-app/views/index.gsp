@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ company }} - Infinity {{ version }}</title>
+    <title>${company} - Infinity ${version}</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Arial:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +23,7 @@
                 <a href="#careers" class="nav-link">CAREERS</a>
             </div>
             <div class="version-badge">
-                <span class="version-text">INFINITY {{ version }}</span>
+                <span class="version-text">INFINITY ${version}</span>
                 <div class="new-badge">NEW!</div>
             </div>
         </nav>
@@ -32,10 +32,10 @@
     <main class="main-content">
         <div class="hero-section">
             <div class="hero-content">
-                <h2>Welcome to Infinity {{ version }}</h2>
+                <h2>Welcome to Infinity ${version}</h2>
                 <p class="hero-subtitle">The Most Revolutionary Paper Experience Ever Created</p>
                 <div class="upgrade-notice">
-                    <strong>🎉 MAJOR UPGRADE:</strong> Infinity {{ version }} fixes all known issues from v1.0 
+                    <strong>🎉 MAJOR UPGRADE:</strong> Infinity ${version} fixes all known issues from v1.0
                     and introduces groundbreaking features you never knew you needed!
                 </div>
             </div>
@@ -45,26 +45,26 @@
             <section class="main-section">
                 <div class="section-header">
                     <h3>LATEST NEWS & UPDATES</h3>
-                    <span class="powered-by">Powered by Infinity {{ version }} News Engine</span>
+                    <span class="powered-by">Powered by Infinity ${version} News Engine</span>
                 </div>
                 
-                {% for item in news %}
+                <g:each in="${news}" var="item">
                 <article class="news-item">
-                    <h4 class="news-title">{{ item.title }}</h4>
+                    <h4 class="news-title">${item.title}</h4>
                     <div class="news-meta">
-                        <span class="news-author">By {{ item.author }}</span>
-                        <span class="news-date">{{ item.date }}</span>
+                        <span class="news-author">By ${item.author}</span>
+                        <span class="news-date">${item.date}</span>
                     </div>
-                    <p class="news-content">{{ item.content }}</p>
+                    <p class="news-content">${item.content}</p>
                     <div class="news-tags">
                         <span class="tag">Breaking</span>
                         <span class="tag">Company Update</span>
                     </div>
                 </article>
-                {% endfor %}
+                </g:each>
 
                 <div class="feature-spotlight">
-                    <h3>🚀 Infinity {{ version }} Features</h3>
+                    <h3>🚀 Infinity ${version} Features</h3>
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">📱</div>
@@ -91,7 +91,7 @@
             </section>
 
             <aside class="sidebar">
-                {% if chat_enabled %}
+                <g:if test="${chat_enabled}">
                 <div class="chat-widget">
                     <h3>💬 CHAT WITH SALES</h3>
                     <div class="chat-container" id="chatContainer">
@@ -102,9 +102,9 @@
                             <label for="office-select" class="sr-only">Select Office Location</label>
                             <select id="office-select" class="office-select" aria-label="Select office location">
                                 <option value="">Select an office...</option>
-                                {% for office in offices %}
-                                <option value="{{ office.id }}">{{ office.name }} - {{ office.location }}</option>
-                                {% endfor %}
+                                <g:each in="${offices}" var="office">
+                                <option value="${office.id}">${office.name} - ${office.location}</option>
+                                </g:each>
                             </select>
                             <button id="start-chat" class="chat-button" disabled aria-label="Start chat with selected office">
                                 🚀 Start Chat
@@ -127,30 +127,30 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
+                </g:if>
 
                 <div class="employee-spotlight">
                     <h3>EMPLOYEE SPOTLIGHT</h3>
                     <div class="employee-grid">
-                        {% for employee in employees %}
+                        <g:each in="${employees}" var="employee">
                         <div class="employee-card">
                             <div class="employee-photo">
                                 <div class="photo-placeholder">📷</div>
                             </div>
                             <div class="employee-info">
-                                <h4>{{ employee.name }}</h4>
-                                <p class="employee-title">{{ employee.title }}</p>
-                                <p class="employee-dept">{{ employee.department }}</p>
-                                <p class="employee-years">{{ employee.years_service }} years of service</p>
-                                <blockquote class="employee-quote">"{{ employee.quote }}"</blockquote>
+                                <h4>${employee.name}</h4>
+                                <p class="employee-title">${employee.title}</p>
+                                <p class="employee-dept">${employee.department}</p>
+                                <p class="employee-years">${employee.years_service} years of service</p>
+                                <blockquote class="employee-quote">"${employee.quote}"</blockquote>
                             </div>
                         </div>
-                        {% endfor %}
+                        </g:each>
                     </div>
                 </div>
 
                 <div class="quick-stats">
-                    <h3>INFINITY {{ version }} STATS</h3>
+                    <h3>INFINITY ${version} STATS</h3>
                     <div class="stats-grid">
                         <div class="stat-item">
                             <div class="stat-number">400%</div>
@@ -177,7 +177,7 @@
                         <li><a href="#orders">📋 Place New Order</a></li>
                         <li><a href="#inventory">📦 Check Inventory</a></li>
                         <li><a href="#support">🛠️ Technical Support</a></li>
-                        <li><a href="#training">🎓 Infinity {{ version }} Training</a></li>
+                        <li><a href="#training">🎓 Infinity ${version} Training</a></li>
                         <li><a href="#feedback">💬 Send Feedback</a></li>
                         <li><a href="#bug-report">🐛 Report Bug (Unlikely)</a></li>
                     </ul>
@@ -186,7 +186,7 @@
                 <div class="testimonials">
                     <h3>WHAT PEOPLE ARE SAYING</h3>
                     <blockquote class="testimonial">
-                        "Infinity {{ version }} has revolutionized how we think about paper. It's like version 1.0, 
+                        "Infinity ${version} has revolutionized how we think about paper. It's like version 1.0,
                         but with more features and fewer problems!"
                         <cite>- Corporate, probably</cite>
                     </blockquote>
@@ -204,7 +204,7 @@
             <div class="footer-section">
                 <h4>Dunder Mifflin Paper Company</h4>
                 <p>Scranton, PA • Est. 1949</p>
-                <p>Infinity {{ version }} - The Future is Now</p>
+                <p>Infinity ${version} - The Future is Now</p>
             </div>
             <div class="footer-section">
                 <h4>Support</h4>
@@ -220,7 +220,7 @@
         </div>
     </footer>
 
-    {% if chat_enabled %}
+    <g:if test="${chat_enabled}">
     <script>
         // Chat functionality
         let currentSessionId = null;
@@ -294,11 +294,9 @@
             if (salesperson) {
                 const welcomeMsg = document.createElement('div');
                 welcomeMsg.className = 'chat-message system';
-                welcomeMsg.innerHTML = `
-                    <strong>You're now chatting with ${salesperson.name}</strong><br>
-                    <em>${salesperson.title}</em><br>
-                    <small>"${salesperson.quote}"</small>
-                `;
+                welcomeMsg.innerHTML = '<strong>You\'re now chatting with ' + salesperson.name +
+                    '</strong><br><em>' + salesperson.title +
+                    '</em><br><small>"' + salesperson.quote + '"</small>';
                 chatMessages.appendChild(welcomeMsg);
             }
         }
@@ -308,7 +306,7 @@
             if (!currentSessionId) return;
 
             try {
-                const response = await fetch(`/api/chat/end/${currentSessionId}`, {
+                const response = await fetch('/api/chat/end/' + currentSessionId, {
                     method: 'POST'
                 });
 
@@ -366,6 +364,6 @@
             }
         });
     </script>
-    {% endif %}
+    </g:if>
 </body>
 </html>

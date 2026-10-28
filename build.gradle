@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "org.apache.grails:grails-gradle-plugins:$grailsVersion"
+    }
+}
+
+apply plugin: 'org.apache.grails.gradle.grails-web'
+apply plugin: 'org.apache.grails.gradle.grails-gsp'
+
+group = 'com.dundermifflin'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform("org.apache.grails:grails-bom:$grailsVersion")
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.apache.grails:grails-core'
+    implementation 'org.apache.grails:grails-web-boot'
+    implementation 'org.apache.grails:grails-logging'
+    implementation 'org.apache.grails:grails-rest-transforms'
+    implementation 'org.apache.grails:grails-databinding'
+    implementation 'org.apache.grails:grails-services'
+    implementation 'org.apache.grails:grails-url-mappings'
+    implementation 'org.apache.grails:grails-interceptors'
+    implementation 'org.apache.grails:grails-sitemesh3'
+    implementation 'org.apache.grails:grails-gsp'
+
+    testImplementation 'org.spockframework:spock-core'
+    testImplementation 'org.spockframework:spock-spring'
+    testImplementation 'org.apache.grails.testing:grails-test-core'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
