@@ -1,0 +1,23 @@
+server:
+    address: 0.0.0.0
+    port: 3000
+
+grails:
+    profile: web
+    controllers:
+        defaultScope: singleton
+    mime:
+        types:
+            html: text/html
+            json: application/json
+    views:
+        default:
+            codec: html
+        gsp:
+            encoding: UTF-8
+            codecs:
+                expression: html
+                scriptlet: html
+
+chat:
+    enabled: ${CHAT_ENABLED:true}
